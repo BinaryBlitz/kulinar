@@ -1,0 +1,33 @@
+h1 Ресторан: #{ @restaurant.name }
+
+.form-group
+  strong Название: 
+  = @restaurant.name
+
+.form-group
+  strong Описание: 
+  = @restaurant.description
+
+.form-group
+  strong Адрес: 
+  = @restaurant.address
+
+.form-group
+  strong Номер телефона: 
+  = @restaurant.phone_number
+
+.form-group
+  strong Сайт: 
+  = @restaurant.site
+
+.form-group
+  strong Избранный: 
+  = check_box_tag :favourited, 1, @restaurant.favourited
+
+.form-group
+  strong Иконка:
+  p = image_tag @restaurant.icon.thumb
+
+.form-group
+  strong Фотография:
+  p = image_tag @restaurant.image.thumb
