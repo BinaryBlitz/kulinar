@@ -1,16 +1,23 @@
 class Restaurant < ApplicationRecord
+  MAX_FEATURED = 5
+
   validates :name, :description, :image, :icon,
             :address, :phone_number, :site, presence: true
-  validate :number_of_favourited
+  validate :featured_count
 
-  scope :favourited, -> { where(favourited: true) }
+  scope :featured, -> { where(featured: true) }
 
   mount_uploader :image, ImageUploader
   mount_uploader :icon, IconUploader
 
+  def self.max_featured?
+    featured.count >= MAX_FEATURED
+  end
+
   private
 
-  def number_of_favourited
-    errors.add(:base, 'Нельзя добавить больше 5 избранных') if favourited? && favourited.count >= 5
+  def featured_count
+    return unless featured?
+    errors.add(:base, 'Нельзя добавить больше 5 избранных') if Restaurant.max_featured?
   end
 end

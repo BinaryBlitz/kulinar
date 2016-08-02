@@ -24,6 +24,6 @@
             td = restaurant.site
             td = image_tag(restaurant.icon.thumb)
             td = image_tag(restaurant.image.thumb)
-            td = check_box_tag :favourited, 1, restaurant.favourited
+            td = check_box_tag :featured, 1, restaurant.featured
             td = link_to 'Изменить', edit_admin_restaurant_path(restaurant), class: 'btn btn-warning'
             td = link_to 'Удалить', admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Вы действительно хотите удалить ресторан из системы?' }, class: 'btn btn-danger'

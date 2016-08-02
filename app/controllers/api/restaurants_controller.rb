@@ -1,6 +1,6 @@
 class Api::RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.favourited
+    @restaurants = Restaurant.featured
   end
 
   def show

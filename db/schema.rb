@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160726183907) do
     t.string   "address",                      null: false
     t.string   "phone_number",                 null: false
     t.string   "site",                         null: false
-    t.boolean  "favourited",   default: false
+    t.boolean  "featured",     default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end

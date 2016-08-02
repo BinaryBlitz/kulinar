@@ -48,7 +48,7 @@ class Admin::RestaurantsController < ApplicationController
       .require(:restaurant)
       .permit(
         :name, :description, :address, :phone_number,
-        :site, :image, :icon, :favourited
+        :site, :image, :icon, :featured
       )
   end
 
