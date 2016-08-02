@@ -1,0 +1,10 @@
+recipe:
+  name: Recipe
+  description: Description
+  image: Image
+  cooking_time: 60
+  calories: 1.0
+  proteins: 1.0
+  fats: 1.0
+  carbohydrates: 1.0
+  restaurant: restaurant
