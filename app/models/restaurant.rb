@@ -1,6 +1,8 @@
 class Restaurant < ApplicationRecord
   MAX_FEATURED = 5
 
+  has_many :recipes, dependent: :destroy
+
   validates :name, :description, :image, :icon,
             :address, :phone_number, :site, presence: true
   validate :featured_count
