@@ -1,0 +1,38 @@
+h1 Рецепт: #{ @recipe.name }
+
+.form-group
+  strong Название: 
+  = @recipe.name
+
+.form-group
+  strong Описание: 
+  = @recipe.description
+
+- if @recipe.restaurant.present?
+  .form-group
+    strong Ресторан: 
+    = @recipe.restaurant.name
+
+.form-group
+  strong Время приготовления: 
+  = @recipe.cooking_time
+
+.form-group
+  strong Калории: 
+  = @recipe.calories
+
+.form-group
+  strong Белки: 
+  = @recipe.proteins
+
+.form-group
+  strong Жиры: 
+  = @recipe.fats
+
+.form-group
+  strong Углеводы: 
+  = @recipe.carbohydrates
+
+.form-group
+  strong Фотография:
+  p = image_tag @recipe.image.thumb
