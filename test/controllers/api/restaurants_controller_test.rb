@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::RestaurantsControllerTest < ActionDispatch::IntegrationTest
+class API::RestaurantsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @restaurant = restaurants(:restaurant)
   end
