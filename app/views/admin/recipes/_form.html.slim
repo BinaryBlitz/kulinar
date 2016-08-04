@@ -14,7 +14,7 @@
 
   .form-group
     = f.label :calories
-    = f.number_field :calories, class: 'form-control'
+    = f.number_field :calories, class: 'form-control', step: 'any'
 
   .form-group
     = f.label :cooking_time
@@ -22,15 +22,15 @@
 
   .form-group
     = f.label :proteins
-    = f.number_field :proteins, class: 'form-control'
+    = f.number_field :proteins, class: 'form-control', step: 'any'
 
   .form-group
     = f.label :fats
-    = f.number_field :fats, class: 'form-control'
+    = f.number_field :fats, class: 'form-control', step: 'any'
 
   .form-group
     = f.label :carbohydrates
-    = f.number_field :carbohydrates, class: 'form-control'
+    = f.number_field :carbohydrates, class: 'form-control', step: 'any'
 
   .form-group
     = f.label :image
