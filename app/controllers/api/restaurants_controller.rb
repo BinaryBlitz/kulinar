@@ -1,4 +1,4 @@
-class API::RestaurantsController < ApplicationController
+class API::RestaurantsController < API::APIController
   def index
     @restaurants = Restaurant.featured
   end
