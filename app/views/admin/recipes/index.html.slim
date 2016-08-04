@@ -1,0 +1,29 @@
+.container 
+  h1 Рецепты
+
+  .form-group
+    = link_to 'Добавить рецепт', new_admin_recipe_path, class: 'btn btn-primary'
+
+  .table-responsive
+    table.table
+      thead
+        tr
+          th Название
+          th Калории
+          th Время приготовления
+          th Ресторан
+          th Фотография
+          th
+          th
+      tbody
+        - @recipes.each do |recipe|
+          tr
+            td = link_to recipe.name, [:admin, recipe]
+            td = recipe.calories
+            td = recipe.cooking_time
+            td
+              - if recipe.restaurant.present?
+                = recipe.restaurant.name
+            td = image_tag(recipe.image.thumb)
+            td = link_to 'Изменить', edit_admin_recipe_path(recipe), class: 'btn btn-warning'
+            td = link_to 'Удалить', admin_recipe_path(recipe), method: :delete, data: { confirm: 'Вы действительно хотите удалить рецепт?' }, class: 'btn btn-danger'
