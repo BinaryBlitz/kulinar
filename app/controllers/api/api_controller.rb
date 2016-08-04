@@ -1,6 +1,5 @@
 class API::APIController < ApplicationController
-  # TODO: Enable when users are implemented
-  # before_action :restrict_access!
+  before_action :restrict_access!
   protect_from_forgery with: :null_session
 
   protected
