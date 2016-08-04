@@ -1,0 +1,4 @@
+foo:
+  first_name: Foo
+  last_name: Bar
+  api_token: <%= SecureRandom.hex %>
