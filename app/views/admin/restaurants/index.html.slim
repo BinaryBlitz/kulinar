@@ -1,0 +1,31 @@
+.container 
+  h1 Рестораны
+
+  .form-group
+    = link_to 'Добавить ресторан', new_admin_restaurant_path, class: 'btn btn-primary'
+
+  .table-responsive
+    table.table
+      thead
+        tr
+          th Название
+          th Адрес
+          th Телефон
+          th Сайт
+          th Иконка
+          th Фотография
+          th Избранный
+          th
+          th
+      tbody
+        - @restaurants.each do |restaurant|
+          tr
+            td = link_to restaurant.name, admin_restaurant_path(restaurant)
+            td = restaurant.address
+            td = restaurant.phone_number
+            td = restaurant.site
+            td = image_tag(restaurant.icon.thumb)
+            td = image_tag(restaurant.image.thumb)
+            td = check_box_tag :featured, 1, restaurant.featured
+            td = link_to 'Изменить', edit_admin_restaurant_path(restaurant), class: 'btn btn-warning'
+            td = link_to 'Удалить', admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Вы действительно хотите удалить ресторан?' }, class: 'btn btn-danger'

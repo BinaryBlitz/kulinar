@@ -1,0 +1,8 @@
+restaurant:
+  name: Restaurant
+  description: Description
+  image: Image
+  icon: Icon
+  address: Address
+  phone_number: '+79998887766'
+  site: Site
