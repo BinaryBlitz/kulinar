@@ -6,12 +6,12 @@ class API::RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get api_recipes_path
+    get api_recipes_path(api_token: api_token)
     assert_response :success
   end
 
   test 'should get show' do
-    get api_recipe_path(@recipe)
+    get api_recipe_path(@recipe, api_token: api_token)
     assert_response :success
   end
 end
