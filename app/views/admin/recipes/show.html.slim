@@ -1,6 +1,11 @@
 h1 Рецепт: #{ @recipe.name }
 
 .form-group
+  = link_to 'Изменить', edit_admin_recipe_path(@recipe), class: 'btn btn-default'
+  |  
+  = link_to 'Шаги', admin_recipe_steps_path(@recipe), class: 'btn btn-primary'
+
+.form-group
   strong Название: 
   = @recipe.name
 
