@@ -1,0 +1,9 @@
+h1 Категория: #{ @category.name }
+
+.form-group
+  strong Название: 
+  = @category.name
+
+.form-group
+  strong Фотография:
+  p = image_tag @category.image.thumb
