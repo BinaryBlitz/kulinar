@@ -48,7 +48,7 @@ class Admin::RecipesController < ApplicationController
       .require(:recipe)
       .permit(
         :name, :description, :image, :cooking_time, :calories,
-        :proteins, :fats, :carbohydrates, :restaurant_id
+        :proteins, :fats, :carbohydrates, :restaurant_id, :category_id
       )
   end
 
