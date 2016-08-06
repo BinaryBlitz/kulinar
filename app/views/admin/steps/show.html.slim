@@ -1,0 +1,24 @@
+h1 Шаг: #{ @step.name }
+
+.form-group
+  = link_to 'Изменить', edit_admin_step_path(@step), class: 'btn btn-default'
+
+.form-group
+  strong Порядковый номер: 
+  = @step.position
+
+.form-group
+  strong Название: 
+  = @step.name
+
+.form-group
+  strong Описание: 
+  = @step.description
+
+.form-group
+  strong Таймер в секундах: 
+  = @step.timer
+
+.form-group
+  strong Фотография:
+  p = image_tag @step.image.thumb

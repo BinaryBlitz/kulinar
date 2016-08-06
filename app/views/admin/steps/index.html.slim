@@ -1,0 +1,25 @@
+.container 
+  h1 Шаги рецепта #{@recipe.name}
+
+  .form-group
+    = link_to 'Добавить шаг', new_admin_recipe_step_path(@recipe), class: 'btn btn-default'
+
+  .table-responsive
+    table.table
+      thead
+        th №
+        th Название
+        th Таймер в секундах
+        th Фотография
+        th Действия
+      tbody
+        - @steps.each do |step|
+          tr
+            td = link_to "Шаг №#{step.position}", [:admin, step]
+            td = step.name
+            td = step.timer
+            td = image_tag(step.image.thumb)
+            td
+              = link_to 'Изменить', edit_admin_step_path(step), class: 'btn btn-default'
+              | &nbsp;
+              = link_to 'Удалить', [:admin, step], method: :delete, class: 'btn btn-danger'

@@ -1,0 +1,7 @@
+step:
+  name: Step
+  description: Description
+  image: Image
+  position: 1
+  timer: 60
+  recipe: recipe
