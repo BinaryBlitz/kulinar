@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :restaurant, optional: true
+  belongs_to :category, counter_cache: true
 
   has_many :steps, dependent: :destroy
 
