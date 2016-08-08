@@ -3,6 +3,8 @@ class Recipe < ApplicationRecord
 
   has_many :steps, dependent: :destroy
   has_many :days, dependent: :destroy
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
   validates :name, :description, :image, :cooking_time, presence: true
   validates :proteins, :fats, :carbohydrates, numericality: { greater_than_or_equal_to: 0 }
