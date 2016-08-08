@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:index, :show]
     resource :user, only: [:show, :create]
     resources :days, only: [:index, :show]
+    resources :selections, only: [:index, :show]
     resources :recipes, only: [:index, :show] do
       resources :steps, only: [:index, :show]
     end
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :restaurants
     resources :days
+    resources :selections
     resources :recipes do
       resources :steps, shallow: true
     end
