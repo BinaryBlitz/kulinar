@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20160807201058) do
     t.index ["recipe_id"], name: "index_days_on_recipe_id", using: :btree
   end
 
+  create_table "picks", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "selection_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipe_id"], name: "index_picks_on_recipe_id", using: :btree
+    t.index ["selection_id"], name: "index_picks_on_selection_id", using: :btree
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string   "name",          null: false
     t.text     "description",   null: false
@@ -68,6 +77,15 @@ ActiveRecord::Schema.define(version: 20160807201058) do
     t.datetime "updated_at",                   null: false
   end
 
+  create_table "selections", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.text     "description", null: false
+    t.string   "image",       null: false
+    t.datetime "starts_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "steps", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description", null: false
@@ -90,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160807201058) do
   end
 
   add_foreign_key "days", "recipes"
+  add_foreign_key "picks", "recipes"
+  add_foreign_key "picks", "selections"
   add_foreign_key "recipes", "restaurants"
   add_foreign_key "steps", "recipes"
 end
