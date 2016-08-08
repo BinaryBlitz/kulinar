@@ -115,6 +115,10 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    nested_form_fields (0.7.8)
+      coffee-rails (>= 3.2.1)
+      jquery-rails
+      rails (>= 3.2.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -229,6 +233,7 @@ DEPENDENCIES
   koala
   listen (~> 3.0.5)
   mini_magick
+  nested_form_fields
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
