@@ -1,4 +1,4 @@
-class Admin::StepsController < ApplicationController
+class Admin::StepsController < Admin::AdminController
   before_action :set_recipe, only: [:index, :new, :create]
   before_action :set_step, only: [:show, :edit, :update, :destroy]
 
