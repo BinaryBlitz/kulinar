@@ -1,0 +1,26 @@
+.container 
+  h1 Подборки
+
+  .form-group
+    = link_to 'Добавить подборку', new_admin_selection_path, class: 'btn btn-primary'
+
+  .table-responsive
+    table.table
+      thead
+        tr
+          th Название
+          th Дата начала
+          th Фотография
+          th Рецепты
+          th
+      tbody
+        - @selections.each do |selection|
+          tr
+            td = link_to selection.name, [:admin, selection]
+            td = selection.starts_at
+            td = image_tag(selection.image.thumb)
+            td
+              - selection.recipes.each do |recipe|
+                li = recipe.name
+            td = link_to 'Изменить', edit_admin_selection_path(selection), class: 'btn btn-warning'
+            td = link_to 'Удалить', admin_selection_path(selection), method: :delete, data: { confirm: 'Вы действительно хотите удалить подборку?' }, class: 'btn btn-danger'

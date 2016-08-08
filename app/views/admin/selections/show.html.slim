@@ -1,0 +1,38 @@
+h1 Подборка: #{ @selection.name }
+
+.form-group
+  strong Название: 
+  = @selection.name
+
+.form-group
+  strong Описание: 
+  = @selection.description
+
+.form-group
+  strong Дата начала: 
+  = @selection.starts_at
+
+.form-group
+  strong Фотография:
+  p = image_tag @selection.image.thumb
+
+h2 Рецепты
+.table-responsive
+  table.table
+    thead
+      tr
+        th Название
+        th Калории
+        th Время приготовления
+        th Ресторан
+        th Фотография
+    tbody
+      - @selection.recipes.each do |recipe|
+        tr
+          td = link_to recipe.name, [:admin, recipe]
+          td = recipe.calories
+          td = recipe.cooking_time
+          td
+            - if recipe.restaurant.present?
+              = recipe.restaurant.name
+          td = image_tag(recipe.image.thumb)
