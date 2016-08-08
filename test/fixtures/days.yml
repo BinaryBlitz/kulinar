@@ -1,0 +1,3 @@
+day:
+  starts_at: <%= Time.now %>
+  recipe: recipe

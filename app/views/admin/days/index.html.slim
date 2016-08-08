@@ -1,0 +1,21 @@
+.container 
+  h1 Рецепты дня
+
+  .form-group
+    = link_to 'Добавить рецепт дня', new_admin_day_path, class: 'btn btn-primary'
+
+  .table-responsive
+    table.table
+      thead
+        tr
+          th Рецепт
+          th Дата начала
+          th
+          th
+      tbody
+        - @days.each do |day|
+          tr
+            td = link_to day.recipe.name, [:admin, day]
+            td = day.starts_at
+            td = link_to 'Изменить', edit_admin_day_path(day), class: 'btn btn-warning'
+            td = link_to 'Удалить', admin_day_path(day), method: :delete, data: { confirm: 'Вы действительно хотите удалить рецепт дня?' }, class: 'btn btn-danger'

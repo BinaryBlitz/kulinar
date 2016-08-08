@@ -4,6 +4,7 @@ class Admin::StepsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @step = steps(:step)
     @recipe = @step.recipe
+    sign_in_admin
   end
 
   test 'should get index' do
