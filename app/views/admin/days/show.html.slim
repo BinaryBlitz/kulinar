@@ -1,0 +1,38 @@
+h1 Рецепт дня: #{ @day.recipe.name }
+
+.form-group
+  strong Название: 
+  = @day.recipe.name
+
+.form-group
+  strong Описание: 
+  = @day.recipe.description
+
+- if @day.recipe.restaurant.present?
+  .form-group
+    strong Ресторан: 
+    = @day.recipe.restaurant.name
+
+.form-group
+  strong Время приготовления: 
+  = @day.recipe.cooking_time
+
+.form-group
+  strong Калории: 
+  = @day.recipe.calories
+
+.form-group
+  strong Белки: 
+  = @day.recipe.proteins
+
+.form-group
+  strong Жиры: 
+  = @day.recipe.fats
+
+.form-group
+  strong Углеводы: 
+  = @day.recipe.carbohydrates
+
+.form-group
+  strong Фотография:
+  p = image_tag @day.recipe.image.thumb
