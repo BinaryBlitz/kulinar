@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :recipes, only: [:index, :show] do
       resources :steps, only: [:index, :show]
     end
+
+    resources :tags, only: [:index, :show]
   end
 
   namespace :admin do
@@ -20,5 +22,7 @@ Rails.application.routes.draw do
     resources :recipes do
       resources :steps, shallow: true
     end
+
+    resources :tags
   end
 end
