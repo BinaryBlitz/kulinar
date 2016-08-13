@@ -12,6 +12,18 @@
     = f.label :restaurant
     = f.collection_select :restaurant_id, Restaurant.all, :id, :name, { include_blank: true }, { class: 'form-control' }
 
+  = f.nested_fields_for :taggings do |ff|
+
+    .form-group
+      = ff.label :tag
+      = ff.collection_select :tag_id, Tag.all, :id, :name, { include_blank: false }, { class: 'form-control' }
+
+    .form-group
+      = ff.remove_nested_fields_link 'Убрать тег', class: 'btn btn-danger'
+
+  .form-group
+    = f.add_nested_fields_link :taggings, 'Добавить тег', class: 'btn btn-default'
+
   .form-group
     = f.label :calories
     = f.number_field :calories, class: 'form-control', step: 'any'
