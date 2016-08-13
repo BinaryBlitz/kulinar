@@ -1,0 +1,19 @@
+.container 
+  h1 Группы тегов
+
+  .form-group
+    = link_to 'Добавить группу тегов', new_admin_tag_group_path, class: 'btn btn-primary'
+
+  .table-responsive
+    table.table
+      thead
+        tr
+          th Название
+          th
+          th
+      tbody
+        - @tag_groups.each do |tag_group|
+          tr
+            td = link_to tag_group.name, [:admin, tag_group]
+            td = link_to 'Изменить', edit_admin_tag_group_path(tag_group), class: 'btn btn-warning'
+            td = link_to 'Удалить', admin_tag_group_path(tag_group), method: :delete, data: { confirm: 'Вы действительно хотите удалить группу тегов?' }, class: 'btn btn-danger'

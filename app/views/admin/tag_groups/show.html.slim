@@ -1,0 +1,8 @@
+h1 Группы тегов: #{ @tag_group.name }
+
+.form-group
+  = link_to 'Изменить', edit_admin_tag_group_path(@tag_group), class: 'btn btn-default'
+
+.form-group
+  strong Название: 
+  = @tag_group.name
