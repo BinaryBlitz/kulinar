@@ -41,3 +41,12 @@ h1 Рецепт: #{ @recipe.name }
 .form-group
   strong Фотография:
   p = image_tag @recipe.image.thumb
+
+.table-responsive
+  table.table
+    thead
+      th Теги
+    tbody
+      - @recipe.tags.each do |tag|
+        tr
+          td = tag.name

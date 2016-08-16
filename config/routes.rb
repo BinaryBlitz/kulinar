@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       resources :steps, only: [:index, :show]
     end
 
-    resources :tag_groups, only: [:index]
+    resources :tag_groups, only: :index do
+      resources :tags, only: :index
+    end
   end
 
   namespace :admin do

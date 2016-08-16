@@ -44,6 +44,6 @@ class Admin::TagGroupsController < Admin::AdminController
   end
 
   def tag_group_params
-    params.require(:tag_group).permit(:name)
+    params.require(:tag_group).permit(:name, tags_attributes: [:id, :name, :_destroy])
   end
 end

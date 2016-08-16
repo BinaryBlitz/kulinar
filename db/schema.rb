@@ -104,6 +104,23 @@ ActiveRecord::Schema.define(version: 20160905130416) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_taggings_on_recipe_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.integer  "tag_group_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["tag_group_id"], name: "index_tags_on_tag_group_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name", null: false
     t.string   "last_name",  null: false
@@ -118,4 +135,7 @@ ActiveRecord::Schema.define(version: 20160905130416) do
   add_foreign_key "picks", "selections"
   add_foreign_key "recipes", "restaurants"
   add_foreign_key "steps", "recipes"
+  add_foreign_key "taggings", "recipes"
+  add_foreign_key "taggings", "tags"
+  add_foreign_key "tags", "tag_groups"
 end
