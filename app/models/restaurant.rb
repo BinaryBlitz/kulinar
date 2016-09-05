@@ -9,7 +9,7 @@
 #  icon         :string           not null
 #  address      :string           not null
 #  phone_number :string           not null
-#  site         :string           not null
+#  site_url     :string           not null
 #  featured     :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
