@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: restaurants
+#
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  description  :text             not null
+#  image        :string           not null
+#  icon         :string           not null
+#  address      :string           not null
+#  phone_number :string           not null
+#  site         :string           not null
+#  featured     :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class Restaurant < ApplicationRecord
   MAX_FEATURED = 5
 
