@@ -23,7 +23,7 @@
             td = link_to restaurant.name, admin_restaurant_path(restaurant)
             td = restaurant.address
             td = restaurant.phone_number
-            td = restaurant.site
+            td = restaurant.site_url
             td = image_tag(restaurant.icon.thumb)
             td = image_tag(restaurant.image.thumb)
             td = check_box_tag :featured, 1, restaurant.featured
