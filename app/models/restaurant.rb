@@ -21,7 +21,7 @@ class Restaurant < ApplicationRecord
   has_many :recipes, dependent: :destroy
 
   validates :name, :description, :image, :icon,
-            :address, :phone_number, :site, presence: true
+            :address, :phone_number, :site_url, presence: true
   validate :featured_count
 
   scope :featured, -> { where(featured: true) }
