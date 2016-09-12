@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :selections, only: [:index, :show]
     resources :recipes, only: [:index, :show] do
       resources :steps, only: [:index, :show]
+      resources :ratings, except: [:show, :new, :edit], shallow: true
     end
   end
 
