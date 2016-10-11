@@ -1,5 +1,5 @@
 class API::TagsController < API::APIController
-  before_action :set_tag_group, only: :index
+  before_action :set_tag_group, only: [:index]
 
   def index
     @tags = @tag_group.tags.all
