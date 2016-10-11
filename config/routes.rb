@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :recipes, only: [:index, :show] do
       resources :steps, only: [:index, :show]
     end
+
+    resources :tag_groups, only: :index do
+      resources :tags, only: :index
+    end
   end
 
   namespace :admin do
@@ -22,5 +26,7 @@ Rails.application.routes.draw do
     resources :recipes do
       resources :steps, shallow: true
     end
+
+    resources :tag_groups
   end
 end
