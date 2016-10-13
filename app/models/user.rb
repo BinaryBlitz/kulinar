@@ -12,6 +12,8 @@
 class User < ApplicationRecord
   include Authenticable
 
+  has_many :ratings, dependent: :destroy
+
   validates :name, presence: true
 
   has_secure_token :api_token

@@ -49,18 +49,30 @@ ActiveRecord::Schema.define(version: 20161025150421) do
     t.index ["selection_id"], name: "index_picks_on_selection_id", using: :btree
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "value"
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_ratings_on_recipe_id", using: :btree
+    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
+  end
+
   create_table "recipes", force: :cascade do |t|
-    t.string   "name",          null: false
-    t.text     "description",   null: false
-    t.integer  "cooking_time",  null: false
-    t.string   "image",         null: false
-    t.float    "calories",      null: false
-    t.float    "proteins",      null: false
-    t.float    "fats",          null: false
-    t.float    "carbohydrates", null: false
+    t.string   "name",                       null: false
+    t.text     "description",                null: false
+    t.integer  "cooking_time",               null: false
+    t.string   "image",                      null: false
+    t.float    "calories",                   null: false
+    t.float    "proteins",                   null: false
+    t.float    "fats",                       null: false
+    t.float    "carbohydrates",              null: false
     t.integer  "restaurant_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "likes_count",    default: 0
+    t.integer  "dislikes_count", default: 0
     t.index ["restaurant_id"], name: "index_recipes_on_restaurant_id", using: :btree
   end
 
@@ -132,6 +144,8 @@ ActiveRecord::Schema.define(version: 20161025150421) do
   add_foreign_key "days", "recipes"
   add_foreign_key "picks", "recipes"
   add_foreign_key "picks", "selections"
+  add_foreign_key "ratings", "recipes"
+  add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "restaurants"
   add_foreign_key "steps", "recipes"
   add_foreign_key "taggings", "recipes"
