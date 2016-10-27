@@ -32,6 +32,7 @@ gem 'vkontakte_api'
 gem 'koala'
 gem 'devise'
 gem 'nested_form_fields'
+gem 'email_validator'
 
 gem 'rollbar'
 
