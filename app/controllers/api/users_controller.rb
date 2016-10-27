@@ -1,5 +1,9 @@
 class API::UsersController < API::APIController
-  skip_before_action :restrict_access!, only: [:create, :authenticate_vk, :authenticate_fb]
+  skip_before_action :restrict_access!,
+                      only: [
+                        :create, :authenticate_vk,
+                        :authenticate_fb, :authenticate_email
+                      ]
   before_action :set_user, only: :show
 
   def show
@@ -39,6 +43,16 @@ class API::UsersController < API::APIController
     head 422
   end
 
+  def authenticate_email
+    @user = User.find_by(email: params[:email])
+
+    if @user && @user.authenticate(params[:password])
+      render json: { api_token: @user.api_token }
+    else
+      render json: { error: 'Invalid email / password combination' }, status: :unauthorized
+    end
+  end
+
   private
 
   def set_user
@@ -46,6 +60,6 @@ class API::UsersController < API::APIController
   end
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :email, :password)
   end
 end
