@@ -15,7 +15,7 @@ class API::UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference 'User.count' do
       post api_user_url(@user, api_token: api_token), params: {
-        user: @user.attributes
+        user: @user.attributes.merge(password: 'qwerty123')
       }
     end
 

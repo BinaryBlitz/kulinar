@@ -21,6 +21,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
 
 gem 'bootstrap-sass'
 gem 'slim-rails'
@@ -30,6 +32,7 @@ gem 'vkontakte_api'
 gem 'koala'
 gem 'devise'
 gem 'nested_form_fields'
+gem 'email_validator'
 
 gem 'rollbar'
 
