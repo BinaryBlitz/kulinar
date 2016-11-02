@@ -47,7 +47,7 @@ class Admin::SelectionsController < Admin::AdminController
     params
       .require(:selection)
       .permit(
-        :name, :description, :image, :starts_at,
+        :name, :description, :image, :starts_at, :featured,
         picks_attributes: [:recipe_id, :_destroy, :id]
       )
   end
