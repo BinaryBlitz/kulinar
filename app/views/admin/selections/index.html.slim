@@ -12,6 +12,7 @@
           th Дата начала
           th Фотография
           th Рецепты
+          th Показывать на главной
           th
       tbody
         - @selections.each do |selection|
@@ -22,5 +23,6 @@
             td
               - selection.recipes.each do |recipe|
                 li = recipe.name
+            td = check_box_tag :featured, 1, selection.featured
             td = link_to 'Изменить', edit_admin_selection_path(selection), class: 'btn btn-warning'
             td = link_to 'Удалить', admin_selection_path(selection), method: :delete, data: { confirm: 'Вы действительно хотите удалить подборку?' }, class: 'btn btn-danger'
