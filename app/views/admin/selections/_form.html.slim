@@ -16,6 +16,10 @@
     = f.label :image
     = f.file_field :image
 
+  .form-group
+    = f.label :featured
+    = f.check_box :featured, class: 'checkbox'
+
   = f.nested_fields_for :picks do |ff|
 
     .form-group

@@ -16,6 +16,10 @@ h1 Подборка: #{ @selection.name }
   strong Фотография:
   p = image_tag @selection.image.thumb
 
+.form-group
+  strong Показывать на главной
+  p = check_box_tag :featured, 1, @selection.featured
+
 h2 Рецепты
 .table-responsive
   table.table
