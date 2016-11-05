@@ -9,6 +9,7 @@
 #  updated_at      :datetime         not null
 #  email           :string
 #  password_digest :string
+#  purchased       :boolean          default(FALSE)
 #
 
 require 'test_helper'
