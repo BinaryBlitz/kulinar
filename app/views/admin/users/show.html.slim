@@ -1,0 +1,17 @@
+h1 Пользователь: #{@user.name}
+
+.form-group
+  strong Имя: 
+  = @user.name
+
+.form-group
+  strong Почта: 
+  = @user.email
+
+.form-group
+  strong Дата регистрации: 
+  = @user.created_at
+
+.form-group
+  strong Покупка неограниченного доступа к рецептам: 
+  = check_box_tag :purchased, 1, @user.purchased

@@ -1,0 +1,23 @@
+h1 Пользователи
+
+form.form-inline
+  = form_tag(admin_users_path, method: 'get') do
+    .form-group
+      = text_field_tag :search, params[:search], placeholder: 'Поиск...', class: 'form-control'
+    | &nbsp;
+
+    = submit_tag 'Поиск', class: 'btn btn-default'
+
+.table-responsive
+  table.table
+    thead
+      tr
+        th Имя
+        th Почта
+        th Неограниченный доступ к рецептам
+    tbody
+      - @users.each do |user|
+        tr
+          td = link_to user.name, [:admin, user]
+          td = user.email
+          td = check_box_tag :purchased, 1, user.purchased
