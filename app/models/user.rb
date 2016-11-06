@@ -9,6 +9,7 @@
 #  updated_at      :datetime         not null
 #  email           :string
 #  password_digest :string
+#  purchased       :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -24,4 +25,9 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_nil: true
   has_secure_token :api_token
+
+  def self.search(query)
+    return all unless query.present?
+    where("name ILIKE ?", "%#{query}%")
+  end
 end

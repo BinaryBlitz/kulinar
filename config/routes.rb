@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :restaurants
     resources :days
     resources :selections
+    resources :users, only: [:index, :show]
+
     resources :recipes do
       resources :steps, shallow: true
     end
