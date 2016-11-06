@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :tag_groups, only: :index do
       resources :tags, only: :index
     end
+    resources :ingredients, only: [:index]
   end
 
   namespace :admin do
@@ -31,5 +32,6 @@ Rails.application.routes.draw do
     end
 
     resources :tag_groups
+    resources :ingredients
   end
 end
