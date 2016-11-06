@@ -1,0 +1,8 @@
+h1 Шаг: #{ @ingredient.name }
+
+.form-group
+  = link_to 'Изменить', edit_admin_ingredient_path(@ingredient), class: 'btn btn-default'
+
+.form-group
+  strong Название: 
+  = @ingredient.name
