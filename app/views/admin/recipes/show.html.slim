@@ -19,6 +19,10 @@ h1 Рецепт: #{ @recipe.name }
     = @recipe.restaurant.name
 
 .form-group
+  strong Категория: 
+  = @recipe.category.name
+
+.form-group
   strong Время приготовления: 
   = @recipe.cooking_time
 

@@ -12,6 +12,7 @@
           th Калории
           th Время приготовления
           th Ресторан
+          th Категория
           th Фотография
           th
           th
@@ -24,6 +25,7 @@
             td
               - if recipe.restaurant.present?
                 = recipe.restaurant.name
+            td = recipe.category.name
             td = image_tag(recipe.image.thumb)
             td = link_to 'Изменить', edit_admin_recipe_path(recipe), class: 'btn btn-warning'
             td = link_to 'Удалить', admin_recipe_path(recipe), method: :delete, data: { confirm: 'Вы действительно хотите удалить рецепт?' }, class: 'btn btn-danger'
