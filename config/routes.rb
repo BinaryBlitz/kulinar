@@ -35,5 +35,6 @@ Rails.application.routes.draw do
 
     resources :tag_groups
     resources :ingredients
+    resources :categories
   end
 end
