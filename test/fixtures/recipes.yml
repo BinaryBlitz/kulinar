@@ -26,3 +26,4 @@ recipe:
   fats: 1.0
   carbohydrates: 1.0
   restaurant: restaurant
+  category: category

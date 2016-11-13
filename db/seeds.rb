@@ -10,3 +10,11 @@ restaurant = Restaurant.create!(
   image: image, icon: image,
   address: 'Address', phone_number: '+79998887766', site_url: 'http://google.com'
 )
+
+category = Category.create!(name: 'Category', image: image)
+
+recipe = Recipe.create!(
+  name: 'Recipe', description: 'Description', image: image,
+  cooking_time: 60, calories: 1.0, proteins: 1.0, fats: 1.0,
+  carbohydrates: 1.0, restaurant: restaurant, category: category
+)

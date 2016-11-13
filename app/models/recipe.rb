@@ -16,10 +16,12 @@
 #  updated_at     :datetime         not null
 #  likes_count    :integer          default(0)
 #  dislikes_count :integer          default(0)
+#  category_id    :integer
 #
 
 class Recipe < ApplicationRecord
   belongs_to :restaurant, optional: true
+  belongs_to :category
 
   has_many :steps, dependent: :destroy
   has_many :days, dependent: :destroy
