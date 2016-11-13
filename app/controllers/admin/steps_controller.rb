@@ -50,6 +50,6 @@ class Admin::StepsController < Admin::AdminController
   end
 
   def step_params
-    params.require(:step).permit(:name, :description, :image, :timer, :position)
+    params.require(:step).permit(:name, :description, :image, :timer, :position, :use_image_as_recipe_cover)
   end
 end

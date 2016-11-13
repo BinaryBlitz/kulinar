@@ -21,4 +21,8 @@
     = f.file_field :image
 
   .form-group
+    = f.label :use_image_as_recipe_cover
+    = f.check_box :use_image_as_recipe_cover, class: 'checkbox'
+
+  .form-group
     = f.submit class: 'btn btn-default'
