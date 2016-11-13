@@ -13,6 +13,8 @@
           th Время приготовления
           th Ресторан
           th Категория
+          th Лайки
+          th Дизлайки
           th Фотография
           th
           th
@@ -26,6 +28,8 @@
               - if recipe.restaurant.present?
                 = recipe.restaurant.name
             td = recipe.category.name
+            td = recipe.likes_count
+            td = recipe.dislikes_count
             td = image_tag(recipe.image.thumb)
             td = link_to 'Изменить', edit_admin_recipe_path(recipe), class: 'btn btn-warning'
             td = link_to 'Удалить', admin_recipe_path(recipe), method: :delete, data: { confirm: 'Вы действительно хотите удалить рецепт?' }, class: 'btn btn-danger'

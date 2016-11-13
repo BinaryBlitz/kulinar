@@ -43,6 +43,18 @@ h1 Рецепт: #{ @recipe.name }
   = @recipe.carbohydrates
 
 .form-group
+  strong Количество лайков: 
+  = @recipe.likes_count
+
+.form-group
+  strong Количество дизлайков: 
+  = @recipe.dislikes_count
+
+.form-group
+  strong Выбирался в качестве блюда дня: 
+  = t(@recipe.days.any?.to_s)
+
+.form-group
   strong Фотография:
   p = image_tag @recipe.image.thumb
 
