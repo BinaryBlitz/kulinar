@@ -20,5 +20,9 @@ h1 Шаг: #{ @step.name }
   = @step.timer
 
 .form-group
+  strong Главная фотография: 
+  = check_box_tag :use_image_as_recipe_cover, 1, @step.use_image_as_recipe_cover
+
+.form-group
   strong Фотография:
   p = image_tag @step.image.thumb

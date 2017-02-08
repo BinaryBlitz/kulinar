@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107211507) do
+ActiveRecord::Schema.define(version: 20161108201115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,14 +115,15 @@ ActiveRecord::Schema.define(version: 20161107211507) do
   end
 
   create_table "steps", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.text     "description", null: false
-    t.integer  "position",    null: false
+    t.string   "name",                                      null: false
+    t.text     "description",                               null: false
+    t.integer  "position",                                  null: false
     t.integer  "timer"
     t.string   "image"
     t.integer  "recipe_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.boolean  "use_image_as_recipe_cover", default: false
     t.index ["recipe_id"], name: "index_steps_on_recipe_id", using: :btree
   end
 

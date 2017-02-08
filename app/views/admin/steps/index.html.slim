@@ -11,6 +11,7 @@
         th Название
         th Таймер в секундах
         th Фотография
+        th Главная фотография
         th Действия
       tbody
         - @steps.each do |step|
@@ -19,6 +20,7 @@
             td = step.name
             td = step.timer
             td = image_tag(step.image.thumb)
+            td = check_box_tag :use_image_as_recipe_cover, 1, step.use_image_as_recipe_cover
             td
               = link_to 'Изменить', edit_admin_step_path(step), class: 'btn btn-default'
               | &nbsp;
